@@ -1,0 +1,53 @@
+<div xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+ layout:decorator="layout_user"
+ layout:fragment="content">
+            <!--   Phần giữa   -->
+            <div class="jumbotron col-sm-12" style="height: 150px;">
+                <fieldset>
+                    <h1>
+                        <legend>CART</legend>
+                    </h1>
+                    <ul class="list-unstyled">
+                        <li>
+                            All the selected prodcuts in your cart
+                        </li>
+                        <li>
+                            <button type="button" class="btn btn-primary"></button>
+                            <button type="button" class="btn btn-success"></button>
+                            <button type="button" class="btn btn-danger"></button>
+                            <button type="button" class="btn btn-warning"></button>
+                            <button type="button" class="btn btn-info"></button>
+                        </li>
+                    </ul>
+                </fieldset>
+            </div>
+
+
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+
+                <button id="clear" type="button" class="btn btn-danger" style="float: left;">Clear Cart</button>
+                <button id="checkOut" type="button" class="btn btn-success" style="float: right;">Check out</button>
+	            <img id="imageEmpty" src="assits/user/images/giohangtrong.png" alt="loading..."/>
+                <table class="table" id="myTable">
+                    <thead>
+                        <tr>                 	
+                            <th scope="col">Products</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Unit price</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                                    
+                      
+                    </tbody>
+                </table>
+                <a th:href="@{/}"><button type="button" class="btn btn-success">Continue shopping</button></a>
+            </div>
+            <div class="col-sm-1"></div>
+            <!--   end   -->
+        </div>
+        
+<script src="assits/user/js/cart.js"></script>

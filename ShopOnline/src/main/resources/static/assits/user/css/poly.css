@@ -1,0 +1,149 @@
+/*=========================== Trang index ====================================== */
+
+
+/*
+*   ------------------  CSS CONTAINER   ------------------------------
+*/
+
+
+/*----------------------------begin header */
+
+header {
+    position: relative;
+    height: 250px;
+}
+
+.pull-right {
+    position: absolute;
+    right: 20px;
+    bottom: 0px;
+}
+
+.shopping-mall {
+    position: absolute;
+    bottom: 20px;
+    font-variant: small-caps;
+}
+
+.shopping-mall>h1 {
+    font-family: Impact;
+    font-size: 50px;
+    color: white;
+    letter-spacing: 0.3px;
+    text-shadow: 0 0 2px black;
+    padding-bottom: 0px;
+    border-bottom: 1px dotted gray;
+    margin: 0px;
+}
+
+.shopping-mall>h5 {
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+}
+
+
+/*--------------------------------- the end header -------------------------------------------*/
+
+
+/*------------------begin navbar */
+
+.aaaa {
+    color: #ffc107 !important;
+}
+
+.navbar {
+    margin-bottom: 0px
+}
+
+.poly {
+    margin: 15px 5px;
+    box-shadow: 0 0 0 1px #a09999;
+    border-radius: 5px;
+}
+
+.polyul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    font-variant: small-caps;
+}
+
+.poly a {
+    color: black;
+}
+
+.poly .card-body form {
+    margin: auto;
+}
+
+.cart {
+    padding: 10px 30px;
+}
+
+.poly-cart .card-header strong {
+    font-variant: small-caps;
+    font-size: larger;
+    text-shadow: 0 0 2px darkgray;
+}
+
+
+/*---------------------------------- the end navbar----------------------------- */
+
+
+/*-----------------------------begin article*/
+
+.jumbotron {
+    margin-top: 15px;
+}
+
+article button {
+    width: 35px;
+    height: 8px;
+}
+
+
+/* ---------products */
+
+.products a {
+    margin: 15px 0px 10px 0px;
+    color: black;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+.products a:hover {
+    border-radius: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-decoration: none;
+}
+
+.products img {
+    display: inline-block;
+    max-width: 270px;
+    max-height: 190px;
+    width: auto;
+    height: auto;
+}
+
+
+/* ---------end products */
+
+
+/*---------------------------------- the end article----------------------------- */
+
+.footer {
+    margin-top: 15px;
+    background-color: #e9ecef;
+}
+
+
+/*============================================ the end index ================================*/
+
+
+/*=========================== Trang chi tiết sản phẩm ====================================== */
+
+.idetail_product {
+    color: #ffc107;
+}
+
+
+/*=========================== Kết thúc trang chi tiết sản phẩm ============================= */

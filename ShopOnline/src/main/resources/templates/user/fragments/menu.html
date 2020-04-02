@@ -1,0 +1,72 @@
+<nav class=" row navbar navbar-expand-lg navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="nav navbar-nav navbar-right">
+                    <a class="nav-item nav-link" th:href="@{/}"><i class="fas fa-anchor"></i> Trang chủ</a>
+                    <a class="nav-item nav-link" href="#"><i class="fas fa-align-justify"></i> Giới thiệu</a>
+                    <a class="nav-item nav-link" href="#"><i class="fa fa-phone"></i> Liên hệ</a>
+                    <a class="nav-item nav-link" href="#"><i class="far fa-comment"></i> Góp ý</a>
+                    <a class="nav-item nav-link" href="#"><i class="fas fa-bells"></i> Hỏi đáp</a>
+                     <!--xét đk theo thymelr -->
+                   <!--  <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user"></i> Tài khoản
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal" 
+                            id="login" data-target="#loginModal" th:if="${session.Customer==null}" >Đăng nhập</a>
+                            <a class="dropdown-item" href="javascript:void(0)" th:if="${session.Customer!=null}"  >Quên mật khẩu</a>
+                            <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal" data-target="#registrationModal"
+                            												  th:if="${session.Customer==null}" >Đăng ký thành viên</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="javascript:void(0)" th:href = "@{/logout}"
+                            												   th:if="${session.Customer!=null}" >Đăng xuất</a>
+                            <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal" data-target="#changePasswordModal"
+                            												   th:if="${session.Customer!=null}" >Đổi mật khẩu</a>
+                            <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal" data-target="#updateCustommerModal"
+                            												   th:if="${session.Customer!=null}" id="open_update" >Cập nhật hồ sơ</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="javascript:void(0)">Đơn hàng</a>
+                            <a class="dropdown-item" href="javascript:void(0)" th:if="${session.Customer!=null}">Hàng đã mua</a>
+                        </div>
+                    </li> -->     
+                 <!--    <a class="nav-item nav-link" href="javascript:void(0)" 
+                     th:text="${session.Customer!=null? session.Customer.name :''}"></a>  -->
+                     
+                     
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user"></i> Tài khoản
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal" 
+                            id="login" data-target="#loginModal" >Đăng nhập</a>
+                            <a class="dropdown-item" href="javascript:void(0)" id="forget_nav" >Quên mật khẩu</a>
+                            <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal" data-target="#registrationModal"
+                            												  id="registration_nav" >Đăng ký thành viên</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="javascript:void(0)" th:href = "@{/logout}"
+                            												  id="logout_nav"  >Đăng xuất</a>
+                            <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal" data-target="#changePasswordModal"
+                            												 id="changepw_nav" >Đổi mật khẩu</a>
+                            <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal" data-target="#updateCustommerModal"
+                            												    id="open_update" >Cập nhật hồ sơ</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" th:href="@{/cart}">Đơn hàng</a>
+                            <a class="dropdown-item" href="javascript:void(0)" id="cartold_nav">Hàng đã mua</a>
+                        </div>
+                    </li>
+                     <a class="nav-item nav-link" href="javascript:void(0)" id="customer_name"></a> 
+                		
+                
+                    
+                    
+                </div>
+                <div class="nav navbar-nav navbar-right ml-auto ">
+                    <a class="nav-item nav-link" href="#">English</a>
+                    <a class="nav-item nav-link mb" href="#">Tiếng việt</a>
+                </div>
+            </div>
+        </nav>

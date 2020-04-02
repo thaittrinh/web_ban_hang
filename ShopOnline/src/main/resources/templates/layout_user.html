@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html 		xmlns="http://www.w3.org/1999/xhtml"
+			xmlns:th="http://www.thymeleaf.org"
+		 xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+
+<head th:replace="user/fragments/head.html"></head>
+
+<body>
+    <div class="container">
+        <header th:replace="user/fragments/header.html"></header>
+        <nav th:replace="user/fragments/menu.html"> </nav>
+        <div class="row" th:replace="user/fragments/modal.html"></div> 
+        <div class="row"  layout:fragment="content"></div>      
+        <footer th:replace="user/fragments/footer.html"></footer>          
+    </div>
+
+    <script src="assits/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assits/user/js/jquery.twbsPagination.js" type="text/javascript"></script>
+    <script src="assits/fontawesome/js/all.js"></script>
+    <script src="assits/user/js/callAPI.js"></script>
+    <script src="assits/user/js/customer.js"></script>
+</body>
+
+</html>

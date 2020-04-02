@@ -1,0 +1,70 @@
+<div xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+ layout:decorator="layout_user"
+ layout:fragment="content">
+ 		<div class="jumbotron col-sm-12" style="height: 150px;">
+                <fieldset>
+                    <h1>
+                        <legend>Detail Product</legend>
+                    </h1>
+                    <ul class="list-unstyled">
+                        <li>
+                            All the detail of prodcut in here
+                        </li>
+                        <li>
+                            <button type="button" class="btn btn-primary"></button>
+                            <button type="button" class="btn btn-success"></button>
+                            <button type="button" class="btn btn-danger"></button>
+                            <button type="button" class="btn btn-warning"></button>
+                            <button type="button" class="btn btn-info"></button>
+                        </li>
+                    </ul>
+                </fieldset>
+            </div>
+
+            <div class="col-sm-6 image_product">
+                <a th:href="@{'assits/images/products/'+${product.photo}}" title="@shopping" data-spzoom target="_blank">
+                    <img th:src="@{'assits/images/products/'+${product.photo}}" alt="Loading..." width="300" height="250" />
+                </a>
+            </div>
+            <div class="col-sm-6 detail_product" >
+            	<h1 id="idProduct" th:text="${product.id}" hidden></h1>
+                <h3 id="nameProduct" th:text="${product.name}"></h3>
+                <p th:text="${product.descriptions}">Sản phẩm thân thiệt - bảo hành trọn đời </p>
+               <strong >Loại sản phẩm: </strong><p th:text="${product.productType.name}">Xe máy</p>
+               <strong>Còn trong kho: </strong> <p th:text="${product.quantity}"></p>
+                <strong>Giá bán: </strong><p id="priceProduct" th:text="${product.price}"></p>
+                <a th:href="@{/}"><button type="button" class="btn btn-success" >Trở lại</button></a>
+               <a th:href="@{/cart}"><button type="button" class="btn btn-warning" id="buyNow">Mua ngay</button></a>            
+            </div>
+
+            <div class="col-sm-12">
+                <br/>
+                <h6><strong >Sản phẩm cùng giá</strong></h6>
+                <hr>
+            </div>
+</div>
+
+            <!--- Zoom Image-->
+            <script src="assits/user/js/zoom_image/jquery.spzoom.js"></script>
+            <script src="assits/user/js/add_item_tocart.js"></script>
+            <script>
+                $(function() {
+                    $('[data-spzoom]').spzoom();
+                });
+            </script>
+            <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-36251023-1']);
+                _gaq.push(['_setDomainName', 'jqueryscript.net']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                    var ga = document.createElement('script');
+                    ga.type = 'text/javascript';
+                    ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(ga, s);
+                })();
+            </script>
+            <!--- the end -->

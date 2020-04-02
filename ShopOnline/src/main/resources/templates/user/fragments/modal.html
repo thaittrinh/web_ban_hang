@@ -1,0 +1,201 @@
+
+<!-- 1 Login Modal -->
+		
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+	aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Login</h5>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form name="formLogin" id="formLogin" th:action="@{/login}" method="Post" >
+					
+			<!--  <span th:each ="cookie:${#httpServletRequest.getCookies()}"
+					th:if="${cookie.getName().equals('ck1')}"
+					th:value="${cookie.getValue()}" >	
+					</span>  -->
+			
+					<div class="form-group">
+						<label for="email1">Email or Phone</label> <input type="text"
+							class="form-control" name="email1" id="email1"
+							 th:each ="cookie:${#httpServletRequest.getCookies()}"
+							 th:if="${cookie.getName().equals('ck1')}"
+							 th:value="${cookie.getValue()}">
+					</div>
+					<div class="form-group">
+						<label for="password1">Password</label> <input type="password"
+							class="form-control" name="password1" id="password1"
+							placeholder="Password"	
+							th:each ="cookie:${#httpServletRequest.getCookies()}"
+							 th:if="${cookie.getName().equals('ck2')}"
+							 th:value=" ${cookie.getValue()}">
+					</div>
+					<div class="form-check">
+						<input id='remember' type="checkbox" name="remember-me" class="form-check-input" >
+						<label class="form-check-label" for="remember-me">Remember me</label>
+					</div>
+				</form>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
+				<button type="submit" class="btn btn-primary"
+					onclick="document.getElementById('formLogin').submit()" id="login_now">Login
+					Now</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- 2 Registration Modal-->
+<div class="modal fade" id="registrationModal" tabindex="-1"
+	role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Registration</h5>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form id="register_form">
+					<div class="form-group">
+						<label for="fullname2">Họ & Tên</label> <input type="text"
+							name="name" class="form-control" id="fullname2"
+							placeholder="Vd: Trịnh Trọng Thái ">
+					</div>
+					<div class="form-group">
+						<label for="email2">Email or Phone</label> <input type="text"
+						name="email"	class="form-control" id="email2" placeholder="..@.com.vn">
+					</div>
+					<div class="form-group">
+						<label for="password2">Password</label> <input type="password"
+						name="password"	class="form-control" id="password2" placeholder="Password">
+					</div>
+					<span id="error2" style="color:red;"></span>
+				</form>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancel2">Exit</button>
+				<button type="button" class="btn btn-primary" id="register2">Register</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 3 Change Password Modal-->
+
+<div class="modal fade" id="changePasswordModal" tabindex="-1"
+	role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form name="change_pw">
+					<div class="form-group">
+					    <input type=text hidden name="id" th:value="${session.Customer!=null? session.Customer.id :''}">
+						<label for="password3">Password</label> <input type="password"
+							class="form-control" name="password3" id="password3" placeholder="***">
+					</div>
+					<div class="form-group">
+						<label for="password_new3">New password</label> <input
+							type="password" class="form-control" name="password_new3" id="password_new3"
+							placeholder="***">
+					</div>
+					<div class="form-group">
+						<label for="Comfirm3">Comfirm password</label> <input
+							type="password" class="form-control" name="comfirm3" id="comfirm3"
+							placeholder="***">
+					</div>
+					<span style="color:red" id="error3"></span>
+				</form>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" id="cancel3" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn btn-primary" id="change_password">Change</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 4 Update Information Custommer -->
+<div class="modal fade" id="updateCustommerModal" tabindex="-1"
+	role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Update account</h5>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form name="update_customer" id="update_form">
+					<div class="row">
+							<input type = "text" hidden="true" name="id">
+						<div class="col">
+							<label for="fullname4">Họ và Tên</label> <input type="text"
+							   name="name"	class="form-control" id="fullname4" placeholder="Fullname">
+						</div>
+						<div class="col">
+							<label for="phone4">Số điện thoại</label> <input type="text"
+							name= "phone" class="form-control" id="phone4" placeholder="...">
+						</div>
+					</div>
+					<div class="form-group">
+						<br /> <label>Giới tính </label>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio"
+								name="gender" id="nam" value="true"> <label
+								class="form-check-label" for="inlineRadio1">Nam</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio"
+								name="gender" id="nu" value="false">
+							<label class="form-check-label" for="inlineRadio2">Nữ</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<label for="password4">Password</label> <input type="password"
+							 name="password" class="form-control" id="password4" placeholder="***">
+						</div>
+						<div class="col"></div>
+					</div>
+					<div class="form-group">
+						<label for="email4">Email</label> <input type="text"
+							name="email" class="form-control" id="email4" placeholder="...@.com.vn">
+					</div>
+					<div class="form-group">
+						<label for="adress4">Địa chỉ</label> <input type="text"
+						 name="adress"	class="form-control" id="adress4"
+							placeholder="Quận(Huyện) - Tỉnh">
+					</div>
+					<span id="error4" style="color:red;"></span>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancel4">Cancel</button>
+				<button type="button" class="btn btn-primary" id="update_4">Update</button>
+			</div>
+		</div>
+	</div>
+</div>

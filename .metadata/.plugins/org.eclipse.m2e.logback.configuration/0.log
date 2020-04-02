@@ -1,0 +1,14 @@
+2020-04-02 19:28:53,034 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2020-04-02 19:30:36,419 [Worker-15: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.thai.vn:ShopOnline:0.0.1-SNAPSHOT @ C:\Learn_Spring_Boot\workspase_shoponline\ShopOnline\pom.xml.
+2020-04-02 19:30:37,670 [Worker-12: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.thai.vn:ShopOnline:0.0.1-SNAPSHOT @ C:\Learn_Spring_Boot\workspase_shoponline\ShopOnline\pom.xml.
+2020-04-02 19:30:41,581 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-02 19:30:41,591 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-04-02 19:30:41,637 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1958 resources
+2020-04-02 19:30:54,641 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-02 19:30:54,641 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Learn_Spring_Boot\workspase_shoponline\ShopOnline\src\test\resources
+2020-04-02 19:30:56,639 [Worker-9: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.thai.vn:ShopOnline:0.0.1-SNAPSHOT @ C:\Learn_Spring_Boot\workspase_shoponline\ShopOnline\pom.xml.
+2020-04-02 19:30:58,218 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-02 19:30:58,326 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-04-02 19:30:58,444 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1958 resources
+2020-04-02 19:31:08,268 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-04-02 19:31:08,268 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Learn_Spring_Boot\workspase_shoponline\ShopOnline\src\test\resources
