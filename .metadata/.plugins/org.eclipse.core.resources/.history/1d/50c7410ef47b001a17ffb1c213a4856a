@@ -1,0 +1,55 @@
+
+var UIController = (function(){
+	var DOMString = {
+			tbody : "tbody",
+			
+	};
+	
+	return {
+		displayPrdTypes : function(data){
+			var tbd = document.querySelector(DOMString.tbody);
+			while (tbd.hasChildNodes()) {
+		        tbd.removeChild(tbl.firstChild);
+		    }
+
+		    for (let i = 0; i < data.length; i++) {
+		        var newRow = tbd.insertRow();
+
+		        var cell0 = newRow.insertCell(0);
+		        var cell1 = newRow.insertCell(1);
+		        var cell2 = newRow.insertCell(2);
+		      
+		        cell0.innerHTML = listSV[i].id;
+		        cell1.innerHTML = listSV[i].name;
+		        cell2.innerHTML = '<input type="checkbox" name="deleteInput" value="Bike">';
+		        
+		    }
+		},	
+		getDOMString : function(){
+			return  DOMString;
+		}
+		
+	}		
+})();
+
+
+
+var controller = (function(UIctrl){
+	
+	//UIctrl.displayPrdTypes();
+	
+})(UIController);
+
+
+
+
+
+$('#pagination').twbsPagination({
+	totalPages : 5,
+	startPage : 1,
+	visiblePages : 3,
+	hideOnlyOnePage : true,
+}).on('page', function(event, page) {
+	//select('/find_all_product?page=' + page + '&&type=')
+
+});

@@ -1,0 +1,18 @@
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Online Shopping Mall</title>
+<link rel="stylesheet" href="assits/bootstrap/css/bootstrap.min.css" />
+
+<!-- <script src="https://kit.fontawesome.com/efe7ce560c.js" crossorigin="anonymous"></script> -->
+<link rel="stylesheet"  th:href="@{assits/fontawesome/css/all.css}" />
+<link rel="stylesheet" th:href="@{assits/user/css/poly.css}" />
+<link rel="stylesheet"
+	th:href="@{assits/user/css/zoom_image/jquery.spzoom.css}" />
+<script src="assits/jquery/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+ <script type="text/javascript" th:inline="javascript">
+			 var url = [[@{'/'}]]; 	 
+</script>
+	 

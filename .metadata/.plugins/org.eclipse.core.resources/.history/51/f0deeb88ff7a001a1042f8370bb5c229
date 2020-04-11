@@ -1,0 +1,11 @@
+package com.thai.vn.api;
+
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * The API of productType
+ */
+@RestController
+public class ProductTypeAPI {
+
+}

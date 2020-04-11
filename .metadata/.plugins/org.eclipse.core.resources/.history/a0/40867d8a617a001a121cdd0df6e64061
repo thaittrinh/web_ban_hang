@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html dir="ltr" xmlns:th="http://www.thymeleaf.org"
+		 xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+
+<head th:replace="admin/fragments/head.html"></head>
+
+<body>
+  
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div> 
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full" data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+   
+        <header  th:replace="admin/fragments/header.html"></header>
+        <aside  th:replace="admin/fragments/aside.html"></aside>       
+          
+        <div class="page-wrapper">           
+            <div class="page-breadcrumb">
+                <div class="row align-items-center">
+                   
+                </div>
+            </div>          
+            <footer th:replace="admin/fragments/footer.html"> </footer>       
+        </div>
+    </div>
+
+    <script src="assits/jquery/jquery.min.js"></script>  
+    <script src="assits/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assits/admin/teamplate/js/app-style-switcher.js"></script>
+    <script src="assits/admin/teamplate/js/waves.js"></script>
+    <script src="assits/admin/teamplate/js/sidebarmenu.js"></script>
+    <script src="assits/admin/teamplate/js/custom.js"></script>
+
+
+
+</body>
+
+</html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html dir="ltr" xmlns:th="http://www.thymeleaf.org"
-		 xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml"
+				xmlns:th="http://www.thymeleaf.org"
+				xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
 
 <head th:replace="admin/fragments/head.html"></head>
 
@@ -20,26 +21,22 @@
         <div class="page-wrapper">           
             <div class="page-breadcrumb">
                 <div class="row align-items-center">
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
+                   <div class="container-fluid">
+                   		<div class="row" layout:fragment="content_admin"></div>
+                   </div>
                 </div>
             </div>          
             <footer th:replace="admin/fragments/footer.html"> </footer>       
         </div>
     </div>
-
-    <script src="assits/jquery/jquery.min.js"></script>  
-    <script src="assits/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assits/admin/teamplate/js/app-style-switcher.js"></script>
-    <script src="assits/admin/teamplate/js/waves.js"></script>
-    <script src="assits/admin/teamplate/js/sidebarmenu.js"></script>
-    <script src="assits/admin/teamplate/js/custom.js"></script>
-
+    
+     
+    <script th:src="@{/assits/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/assits/admin/teamplate/js/app-style-switcher.js}"></script>
+    <script th:src="@{/assits/admin/teamplate/js/waves.js}"></script>
+    <script th:src="@{/assits/admin/teamplate/js/sidebarmenu.js}"></script>
+    <script th:src="@{/assits/admin/teamplate/js/custom.js}"></script>
+ 	
 
 
 </body>

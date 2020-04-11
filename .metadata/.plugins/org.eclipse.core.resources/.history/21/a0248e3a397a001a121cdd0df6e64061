@@ -1,0 +1,54 @@
+package mainWebApplication.controller.rest;
+
+import mainWebApplication.model.Employee;
+import mainWebApplication.repository.EmployeeRepository;
+import mainWebApplication.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+
+@RestController
+@RequestMapping("/api/v1/employee")
+public class StaffRestController {
+    //call  interface EmployeeRepository
+    @Autowired
+    EmployeeRepository employeeRepository;
+    //call  EmployeeService
+    @Autowired
+    EmployeeService employeeService;
+
+    // get all Employee
+    @GetMapping("/")
+    public List<Employee> getall() {
+        return employeeRepository.findAll();
+    }
+
+    //find Employee by id
+    @GetMapping("/{id-employee}")
+    public ResponseEntity<Object> findbyid(@PathVariable(name = "id-employee") String idEmployee) {
+        return new ResponseEntity<Object>(employeeService.findbyid(idEmployee), HttpStatus.OK);
+    }
+
+    //createEmployee
+    @PostMapping("/save")
+    public ResponseEntity<Object> create(@RequestBody Employee employee) {
+        System.out.println(employee);
+        return new ResponseEntity<Object>(employeeService.create(employee), HttpStatus.OK);
+    }
+
+    //updateEmployee
+    @PutMapping("/update")
+    public ResponseEntity<Object> update(@RequestBody Employee employee) {
+        return new ResponseEntity<Object>(employeeService.update(employee), HttpStatus.OK);
+    }
+
+    //deleteEmployee
+    @DeleteMapping("/delete/{id-employee}")
+    public ResponseEntity<Object> delete(@PathVariable(name = "id-employee") String idEmployee) {
+        return new ResponseEntity<Object>(employeeService.delete(idEmployee), HttpStatus.OK);
+    }
+}

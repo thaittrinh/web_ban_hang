@@ -1,0 +1,47 @@
+
+package com.thai.vn.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
+
+import com.thai.vn.model.ProductType;
+import com.thai.vn.repository.ProductTypeRepository;
+import com.thai.vn.service.ProductTypeService;
+
+/**
+ * The Class service
+ */
+@Service
+public class ProductTypeService  {
+
+	@Autowired
+	ProductTypeRepository productTypeRepository;
+
+
+	public List<ProductType> findAll() {
+		
+		return productTypeRepository.findAll();
+	}
+
+	
+	public Page<ProductType> findByName(int page, int size, String name){
+		return productTypeRepository.findByNameContaining(name,PageRequest.of(page - 1, size) );
+	};
+	
+	
+	
+	public void delete() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+
+
+	
+}

@@ -4,8 +4,8 @@
  <script type="text/javascript" th:inline="javascript">
  			hidden(false);
 	 $(document).ready(function() {
-	       var model = [[${Response}]];
-	     	
+	       var model = [[${Response}]];// get attribute
+	    
 	       if(model!=null && model.status){
 			Swal.fire(
 					model.message,
@@ -82,7 +82,7 @@
                 
                 
                 <br/>
-                <!-- Phân Trang   -->
+                <!-- PhÃ¢n Trang   -->
                 <nav aria-label="Page navigation">
                     <ul class="pagination" id="pagination"></ul>
                 </nav>
@@ -120,7 +120,7 @@
                             <div class="card-header">
                                 <a class="card-link" data-toggle="collapse" href="#collapseOne">
                                     <i class="fas fa-align-justify"></i>
-                                    <strong>Chủng loại</strong>
+                                    <strong>Chá»§ng loáº¡i</strong>
                                 </a>
                             </div>
                             <div id="collapseOne" class="collapse show" data-parent="#accordion">
@@ -136,7 +136,7 @@
                             <div class="card-header">
                                 <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
                                     <i class="fas fa-user-secret"></i>
-                                    <strong>Nhà cung cấp</strong>
+                                    <strong>NhÃ  cung cáº¥p</strong>
                                 </a>
                             </div>
                             <div id="collapseTwo" class="collapse" data-parent="#accordion">
@@ -150,16 +150,16 @@
                             <div class="card-header">
                                 <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
                                     <i class="fas fa-bullhorn"></i>
-                                    <strong>Hàng đặc biệt</strong>
+                                    <strong>HÃ ng Ä‘áº·c biá»‡t</strong>
                                 </a>
                             </div>
                             <div id="collapseThree" class="collapse" data-parent="#accordion">
                                 <div class=" list-group">
-                                    <a class="list-group-item" href="#">Hàng bán chạy</a>
-                                    <a class="list-group-item" href="#">Hàng mới</a>
-                                    <a class="list-group-item" href="#">Hàng giảm giá</a>
-                                    <a class="list-group-item" href="#">Hàng đặc biệt</a>
-                                    <a class="list-group-item" href="#">Hàng xem nhiều</a>
+                                    <a class="list-group-item" href="#">HÃ ng bÃ¡n cháº¡y</a>
+                                    <a class="list-group-item" href="#">HÃ ng má»›i</a>
+                                    <a class="list-group-item" href="#">HÃ ng giáº£m giÃ¡</a>
+                                    <a class="list-group-item" href="#">HÃ ng Ä‘áº·c biá»‡t</a>
+                                    <a class="list-group-item" href="#">HÃ ng xem nhiá»�u</a>
                                 </div>
                             </div>
                         </div>
