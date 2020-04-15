@@ -1,0 +1,209 @@
+var UIController = (function() {
+    var DOMString = {
+        tbody : "tbody",
+        inputSearch : "#search", //querySelector id
+        selecterSize : "#items",
+        inputId : "id",	//name
+        inputName : "name",
+        btnCreateNew : "create_new",//getElementById
+        btnInsert : "insert",
+        btnUpdate : "update",
+        btnDelete : "delete",
+        btnMultipleDelete: "multiple_delete",
+
+    };
+    
+    return {
+        displayPrdTypes: function(product_types) {
+            var tbd = document.querySelector(DOMString.tbody);
+            while (tbd.hasChildNodes()) {
+                tbd.removeChild(tbd.firstChild);
+            }
+
+            for (let i = 0; i < product_types.length; i++) {
+                var newRow = tbd.insertRow();
+
+                var cell0 = newRow.insertCell(0);
+                var cell1 = newRow.insertCell(1);
+                var cell2 = newRow.insertCell(2);
+
+                cell0.innerHTML = product_types[i].id;
+                cell0.onclick = clickRow;
+                cell1.innerHTML = product_types[i].name;
+                cell1.onclick = clickRow;
+                cell2.innerHTML = '<input type="checkbox" name="deleteInput" value="Bike">';
+
+            }
+        },
+        
+        fillToForm : function(object){
+        	
+        	var inputId = document.getElementsByName(DOMString.inputId)[0];
+        	var inputName = document.getElementsByName(DOMString.inputName)[0];
+        	
+        	if(object){
+        		inputId.value = object.id;
+        		inputName.value = object.name;
+        	}else{
+        		inputId.value = "";
+        		inputName.value = "";
+        	}
+        		
+        },
+        
+        getForm : function(){
+        	return{
+        		id : document.getElementsByName(DOMString.inputId)[0].value,
+            	name : document.getElementsByName(DOMString.inputName)[0].value
+        	}       	
+        },
+        // visible or unable button or clean form
+         isInsert : function(bolean){
+        	document.getElementById(DOMString.btnInsert).disabled = !bolean;
+        	if(bolean){
+        		this.fillToForm(null);
+        	};
+     
+        	document.getElementById(DOMString.btnUpdate).disabled = bolean;
+        	document.getElementById(DOMString.btnDelete).disabled = bolean;
+        	
+        },
+        
+        getDOMString: function() {
+            return DOMString;
+        }
+
+    }
+})();
+
+
+
+var controller = (function(UIctrl) {
+	 var DOM, name, size, producTypes;
+		 DOM = UIctrl.getDOMString(); 
+		 name = document.querySelector(DOM.inputSearch).value;
+	     size = document.querySelector(DOM.selecterSize).value;
+	     producTypes = [];
+	     index = -1; 
+	     
+   	
+    /*
+     * set up all event
+     */ 
+    var setupEventListener = function() {
+    	
+    	// search
+    	var  node = document.querySelector(DOM.inputSearch);	
+    	node.addEventListener("keyup", function(event) {
+    	    if (event.key === "Enter") {
+    	    	name = document.querySelector(DOM.inputSearch).value;
+    	    	getConnection('api/product_type?size='+ size +'&&page=1&&name=' + name, findAll); 
+    	    }
+    	});
+    	  
+    	// change size
+       document.querySelector(DOM.selecterSize).addEventListener('change', function(){
+    	   size = document.querySelector(DOM.selecterSize).value;
+           getConnection('api/product_type?size='+ size +'&&page=1&&name=' + name, findAll); 
+       });
+         
+       // insert
+       document.getElementById(DOM.btnInsert).addEventListener('click',insertProductType);
+       
+       //update
+      // document.getElementById(DOM.btnUpdate).addEventListener('click', getForm);
+       
+       //delete
+       
+       //document.getElement
+        
+    };
+
+    /*
+     * Get mapping
+     */ 
+    var findAll = function(result) {
+
+    	producTypes = result.content;
+    	
+        // Display all product type;
+        UIctrl.displayPrdTypes(producTypes);
+
+        // set up page
+        setUpPage(result);
+
+    };
+    
+    
+    /*
+     * insert product type
+     */
+     // postmapping
+    var insertProductType = function(){
+ 	
+        postConnection("api/product_type", UIctrl.getForm(), instSuccess);
+       
+    	
+    };
+    
+    //insert success
+     var instSuccess = function(){
+    	 // reload page
+    	 getConnection(`api/product_type?name=${name}&&page=1&&size=${size}`, findAll);
+    	 
+    	 // announce success
+    	 
+    	 sweetalert(true,"thêm mới thành công");
+     	
+    	 // 
+     	 UIctrl.isInsert(true);
+     };
+    
+     
+	 /*
+	  * update product type
+	  */
+     var getForm = function(){
+    	 return {
+    		 
+    		 name : document.getElementsByName(DOM.inputName)[0].value
+    	 }
+     };
+     
+     // update success
+     var updSuccess = function(){
+    	 
+     };
+        
+    /*
+     * set up page
+     */
+    var setUpPage = function(data) {
+    	$('#pagination').twbsPagination('destroy'); // create new pagination
+  	      
+        $('#pagination').twbsPagination({
+            totalPages: data.totalPages,
+            startPage: data.number + 1,
+            visiblePages: 3,
+            hideOnlyOnePage: true,
+        }).on('page', function(event, page) {
+            getConnection('api/product_type?size='+ size +'&&page=' + page + '&&name=' + name, findAll);
+        });
+    };
+
+    return {
+        init: function() {      
+        	getConnection(`api/product_type?name=${name}&&page=1&&size=${size}`, findAll);
+            setupEventListener();
+            UIctrl.isInsert(true);
+            clickRow = function(element){ 
+               	index = element.toElement.parentNode.rowIndex -1;  	
+               	UIctrl.fillToForm(producTypes[index]);
+               	UIctrl.isInsert(false);
+             }
+        }
+    }
+})(UIController);
+
+controller.init();
+

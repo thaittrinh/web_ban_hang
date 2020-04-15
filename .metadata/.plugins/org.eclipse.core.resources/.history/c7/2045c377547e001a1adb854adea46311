@@ -1,0 +1,5 @@
+package com.thai.vn.exception;
+
+public class BadRequestExc {
+
+}

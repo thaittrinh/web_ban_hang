@@ -1,0 +1,78 @@
+
+/*<script type="text/javascript" th:inline="javascript">
+			 const URL = [[@{'/'}]]; 	 
+</script>*/
+/**
+ * Call API
+ */
+
+// The GetMapping
+ 
+  var getConnection = (function(path,fnc){
+  
+	  $.ajax({
+		  url : URL + path,
+		  type : 'GET',
+		  dataType : 'json', // kiểu dữ liệuserver trả về, result là kết quả 
+	      success : function(result) {// 200 / result đã chuyển từ json về object    
+		   fnc(result);
+	    	  
+		   },
+	      error : function(error) {// 500,400... //console.log(error); //console.log(error.status);
+	  
+		   } 
+	});
+  
+  });
+
+
+// The GetMapping
+var postConnection = (function(path, data, fnc){
+	
+	 $.ajax({
+         type: 'post',
+         url: URL + path,
+         contentType: "application/json",
+         cache: false,
+         data: JSON.stringify(data),
+         success: function (result) {
+            // console.log(result)
+              fnc()
+         },
+         error: function (error) {
+        	 console.log(error);
+        	 sweetalert(false,error.message);
+         }
+     });
+	 
+});
+
+
+// The PutMapping
+var putConnection = (function(){
+	
+	
+	
+});
+
+// The DeleteMapping
+var deletConnection = (function(){
+
+});
+
+
+// announce
+var sweetalert = (function(bolean, message){
+		if(bolean){ //success
+			Swal.fire(
+					message,
+					  '',
+					  'success'
+					)	
+		}else{ // error
+			 Swal.fire({
+				   icon: 'error',
+				   title: message,		 
+				 })
+		}  
+});

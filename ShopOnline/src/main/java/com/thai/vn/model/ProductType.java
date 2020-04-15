@@ -27,5 +27,6 @@ public class ProductType implements Serializable{
 	@NotNull
 	@Column(unique = true)
 	private String name;
+
 	
 }

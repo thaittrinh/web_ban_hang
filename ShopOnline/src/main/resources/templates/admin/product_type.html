@@ -16,18 +16,17 @@
 				<!-- Search form -->
 				<div>
 					<input class="form-control" style="float: left; width: 250px;"
-						type="text" placeholder="Search" aria-label="Search"> 
+					 id="search"	type="text" placeholder="Search & enter" aria-label="Search"> 
 					<div class="form-group" style="float: right;"> 
-						<select class="form-control" id="sel1">				
-							<option>All</option>
-							<option selected="selected">5</option>
+						<select class="form-control" id="items">				
+							<option>5</option>
+							<option>3</option>
+							<option>10</option>
 							<option>20</option>
 							<option>30</option>
 						</select>
 					</div>
 				</div>
-
-
 
 				<div class="table-responsive">
 					<table class="table">
@@ -42,7 +41,7 @@
 							<tr>
 								<td>Cell</td>
 								<td>Cell</td>
-								<td><input type="checkbox" name="deleteInput" value="Bike"></td>
+								<td><input type="checkbox" name="Ids" value="id"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -53,7 +52,7 @@
 
 			<ul class="pagination " id="pagination"></ul>
 
-			<button type="button" class="btn btn-danger">Xóa nhiều</button>
+			<button id="multiple_delete" type="button" class="btn btn-danger">Xóa nhiều</button>
 		</div>
 	</div>
 
@@ -61,19 +60,20 @@
 		<div class="card">
 			<div class="card-body">
 				<div class="col-12">
-					<button type="button" class="btn btn-secondary">+ Create
+					<button id="create_new" type="button" class="btn btn-secondary">+ Create
 						new</button>
 				</div>
 				<br />
 				<div class="col-12">
-					<input type="text" placeholder="Name"
+				    <input type="text" hidden="true" name="id">
+					<input type="text" placeholder="Name" name="name"
 						class="form-control form-control-line">
 				</div>
 				<br />
 				<div class="col-12">
-					<button type="button" class="btn btn-success">Insert</button>
-					<button type="button" class="btn btn-primary">Update</button>
-					<button type="button" class="btn btn-danger">Delete</button>
+					<button id="insert" type="button" class="btn btn-success">Insert</button>
+					<button id="update" type="button" class="btn btn-primary">Update</button>
+					<button id="delete" type="button" class="btn btn-danger">Delete</button>
 				</div>
 			</div>
 		</div>

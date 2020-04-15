@@ -19,48 +19,89 @@
 	    	  
 		   },
 	      error : function(error) {// 500,400... //console.log(error); //console.log(error.status);
-	  
+	    	  console.log(error);
+	    	  sweetalert(false,error.responseJSON.message);
 		   } 
 	});
   
   });
 
-  
-
-// defind error
-var defineError = (function(err){
-	if(err.status === 500){
-		return "Lỗi sever";
-	}
-	else if(err.status === 400){
-		return "Dữ liệu đầu vào bị sai"; // bad request;
-	}
-	else if(err.status === 404){
-		return "Trang yêu cầu không tồn tại"
-	}
-	else{
-		return "Có gì đó sai";
-	}
-});
 
 // The GetMapping
-var postConnection = (function(){
+var postConnection = (function(path, data, fnc){
 	
+		$.ajax({
+	         type: 'post',
+	         url: URL + path,
+	         contentType: "application/json",
+	         cache: false,
+	         data: JSON.stringify(data),	        
+	         success: function (result) {
+	            // console.log(result)
+	              fnc()
+	         },
+	         error: function ( error) {
+	        	console.log(error);
+	        	sweetalert(false,error.responseJSON.message);
+	         }
+	     });
+		
 	
-	 
 });
 
 
 // The PutMapping
-var putConnection = (function(){
+var putConnection = (function(path, data,fnc){
 	
-	
+	 $.ajax({
+         type: 'put',
+         url: URL + path,
+         contentType: "application/json",
+         cache: false,
+         data: JSON.stringify(data),
+         success: function (result) {  
+             fnc(result);
+         },
+         error: function (error) {
+        	 console.log(error);
+        	 sweetalert(false,error.responseJSON.message);
+         }
+     });
 	
 });
 
 // The DeleteMapping
-var deletConnection = (function(){
-	
-	
-	
+var deletConnection = (function(path, data,fnc){
+	var arr =[];
+	 $.ajax({
+         type: 'delete',
+         url: URL + path,
+         contentType: "application/json",
+         cache: false,
+         data: JSON.stringify(data),
+         success: function (result) {  
+             fnc();
+         },
+         error: function (error) { 	 
+        	 console.log(error);
+        	 sweetalert(false,"Lỗi server");
+         }
+     });
+});
+
+
+// Announce
+var sweetalert = (function(bolean, message){
+		if(bolean){ //success
+			Swal.fire(
+					message,
+					  '',
+					  'success'
+					)	
+		}else{ // error
+			 Swal.fire({
+				   icon: 'error',
+				   title: message,		 
+				 })
+		}  
 });
